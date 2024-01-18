@@ -9,12 +9,6 @@
     }
   },
   "parameters": {
-    "appNamePrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the function app that you wish to create."
-      }
-    },
     "environmentLetters": {
       "type": "string",
       "metadata": {
@@ -102,7 +96,7 @@
     "appServicePlanName": "[concat('asp-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "appInsightsName": "[concat('appi-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "workspaceName": "[concat('log-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
-    "storageAccountName": "[concat('sa', parameters('environmentLetters'), parameters('regionAbreviation'), parameters('workloadName'))]",
+    "storageAccountName": "[concat('st', parameters('environmentLetters'), parameters('regionAbreviation'), parameters('workloadName'))]",
     "keyVaultName": "[concat('kv-',  parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "appInsightsEndpoints": {
       "AzureCloud": "applicationinsights.azure.com",
