@@ -229,7 +229,7 @@
       "name": "[guid(subscription().id, principalId, 'befefa01-2a29-4197-83a8-272ff33ce314')]",
       "properties": {
         "roleDefinitionId": "befefa01-2a29-4197-83a8-272ff33ce314",
-        "[subscription().id]",
+        "principalId": "[subscription().id]",
         "principalType": "ServicePrincipal"
       },
       "dependsOn": [
