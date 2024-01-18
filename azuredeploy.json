@@ -98,12 +98,12 @@
   },
   "variables": {
 
-    "functionAppName": "[concat('func-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
-    "appServicePlanName": "[concat('asp-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
-    "appInsightsName": "[concat('appi-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
-    "workspaceName": "[concat('log-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
-    "storageAccountName": "[concat('sa', parameters('environmentLetters'), parameters('regionAbreviation'), parameters('workloadName'))]',
-    "keyVaultName": "[concat('kv-',  parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
+    "functionAppName": "[concat('func-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
+    "appServicePlanName": "[concat('asp-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
+    "appInsightsName": "[concat('appi-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
+    "workspaceName": "[concat('log-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
+    "storageAccountName": "[concat('sa', parameters('environmentLetters'), parameters('regionAbreviation'), parameters('workloadName'))]",
+    "keyVaultName": "[concat('kv-',  parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "appInsightsEndpoints": {
       "AzureCloud": "applicationinsights.azure.com",
       "AzureChinaCloud": "applicationinsights.azure.cn",
