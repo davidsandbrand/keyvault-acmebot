@@ -100,6 +100,10 @@ var acmebotAppSettings = [
     name: 'Acmebot:Environment'
     value: environment().name
   }
+  {
+    name: 'Acmebot:AzureDns'
+    value: {subscriptionId}
+  }
 ]
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
