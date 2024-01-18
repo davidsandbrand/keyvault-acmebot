@@ -11,9 +11,26 @@
   "parameters": {
     "appNamePrefix": {
       "type": "string",
-      "maxLength": 14,
       "metadata": {
         "description": "The name of the function app that you wish to create."
+      }
+    },
+    "environmentLetters": {
+      "type": "string",
+      "metadata": {
+        "description": "shs, prd, uat, etc."
+      }
+    },
+    "regionAbreviation": {
+      "type": "string",
+      "metadata": {
+        "description": "cace, caea, etc."
+      }
+    },
+    "workloadName": {
+      "type": "string",
+      "metadata": {
+        "description": "certificates."
       }
     },
     "location": {
@@ -80,12 +97,13 @@
     }
   },
   "variables": {
-    "functionAppName": "[format('func-{0}-{1}', parameters('appNamePrefix'), substring(uniqueString(resourceGroup().id, deployment().name), 0, 4))]",
-    "appServicePlanName": "[format('plan-{0}-{1}', parameters('appNamePrefix'), substring(uniqueString(resourceGroup().id, deployment().name), 0, 4))]",
-    "appInsightsName": "[format('appi-{0}-{1}', parameters('appNamePrefix'), substring(uniqueString(resourceGroup().id, deployment().name), 0, 4))]",
-    "workspaceName": "[format('log-{0}-{1}', parameters('appNamePrefix'), substring(uniqueString(resourceGroup().id, deployment().name), 0, 4))]",
-    "storageAccountName": "[format('st{0}func', uniqueString(resourceGroup().id, deployment().name))]",
-    "keyVaultName": "[format('kv-{0}-{1}', parameters('appNamePrefix'), substring(uniqueString(resourceGroup().id, deployment().name), 0, 4))]",
+
+    "functionAppName": "[concat('func-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
+    "appServicePlanName": "[concat('asp-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
+    "appInsightsName": "[concat('appi-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
+    "workspaceName": "[concat('log-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
+    "storageAccountName": "[concat('sa', parameters('environmentLetters'), parameters('regionAbreviation'), parameters('workloadName'))]',
+    "keyVaultName": "[concat('kv-',  parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]',
     "appInsightsEndpoints": {
       "AzureCloud": "applicationinsights.azure.com",
       "AzureChinaCloud": "applicationinsights.azure.cn",
