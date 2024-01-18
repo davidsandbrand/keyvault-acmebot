@@ -225,7 +225,7 @@
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
       "scope": "[subscription().id]",
-      "name": "[guid(subscription().id, principalId, "befefa01-2a29-4197-83a8-272ff33ce314")]",
+      "name": "[guid(subscription().id, principalId, 'befefa01-2a29-4197-83a8-272ff33ce314')]",
       "properties": {
         "roleDefinitionId": "befefa01-2a29-4197-83a8-272ff33ce314",
         "[subscription().id]",
