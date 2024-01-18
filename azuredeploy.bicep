@@ -1,6 +1,3 @@
-@description('The name of the function app that you wish to create.')
-param appNamePrefix string
-
 @description('shs, prd, uat, etc.')
 param environmentLetters string
 
