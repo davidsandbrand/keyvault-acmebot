@@ -1,6 +1,14 @@
 @description('The name of the function app that you wish to create.')
-@maxLength(14)
 param appNamePrefix string
+
+@description('shs, prd, uat, etc.')
+param environmentLetters string
+
+@description('cace, caea, etc.')
+param regionAbreviation string
+
+@description('certificates')
+param workloadName string
 
 @description('The location of the function app that you wish to create.')
 param location string = resourceGroup().location
