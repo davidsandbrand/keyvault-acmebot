@@ -84,14 +84,15 @@
     },
     "additionalAppSettings": {
       "type": "array",
-      "defaultValue": [],
+      "defaultValue": [
+        
+      ],
       "metadata": {
         "description": "Specifies additional name/value pairs to be appended to the functionap app appsettings."
       }
     }
   },
   "variables": {
-
     "functionAppName": "[concat('func-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "appServicePlanName": "[concat('asp-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
     "appInsightsName": "[concat('appi-', parameters('environmentLetters'), '-', parameters('regionAbreviation'), '-', parameters('workloadName') )]",
@@ -130,7 +131,9 @@
         "name": "Y1",
         "tier": "Dynamic"
       },
-      "properties": {}
+      "properties": {
+        
+      }
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces",
@@ -219,8 +222,6 @@
         "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]"
       ]
     },
-
-
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
@@ -230,13 +231,11 @@
         "roleDefinitionId": "befefa01-2a29-4197-83a8-272ff33ce314",
         "[subscription().id]",
         "principalType": "ServicePrincipal"
-        },
+      },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
       ]
     }
-
-    
   ],
   "outputs": {
     "functionAppName": {
