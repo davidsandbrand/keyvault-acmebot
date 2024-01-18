@@ -37,12 +37,13 @@ param keyVaultBaseUrl string = ''
 @description('Specifies additional name/value pairs to be appended to the functionap app appsettings.')
 param additionalAppSettings array = []
 
-var functionAppName = 'func-${appNamePrefix}-${substring(uniqueString(resourceGroup().id, deployment().name), 0, 4)}'
-var appServicePlanName = 'plan-${appNamePrefix}-${substring(uniqueString(resourceGroup().id, deployment().name), 0, 4)}'
-var appInsightsName = 'appi-${appNamePrefix}-${substring(uniqueString(resourceGroup().id, deployment().name), 0, 4)}'
-var workspaceName = 'log-${appNamePrefix}-${substring(uniqueString(resourceGroup().id, deployment().name), 0, 4)}'
-var storageAccountName = 'st${uniqueString(resourceGroup().id, deployment().name)}func'
-var keyVaultName = 'kv-${appNamePrefix}-${substring(uniqueString(resourceGroup().id, deployment().name), 0, 4)}'
+var functionAppName = 'func-${environmentLetters}-${regionAbreviation}-${workloadName}'
+var appServicePlanName = 'asp-${environmentLetters}-${regionAbreviation}-${workloadName}'
+var appInsightsName = 'appi-${environmentLetters}-${regionAbreviation}-${workloadName}'
+var workspaceName = 'log-${environmentLetters}-${regionAbreviation}-${workloadName}'
+var storageAccountName = 'st${environmentLetters}${regionAbreviation}${workloadName}'
+var keyVaultName = 'kv-${environmentLetters}-${regionAbreviation}-${workloadName}'
+
 var appInsightsEndpoints = {
   AzureCloud: 'applicationinsights.azure.com'
   AzureChinaCloud: 'applicationinsights.azure.cn'
