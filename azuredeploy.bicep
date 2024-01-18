@@ -42,29 +42,6 @@ param keyVaultBaseUrl string = ''
 @description('Specifies additional name/value pairs to be appended to the functionap app appsettings.')
 param additionalAppSettings array = []
 
-
-
-
-param principalId string
-@description('This is the built-in DNS Zone Contributor role. See https://learn.microsoft.com/en-ca/azure/role-based-access-control/built-in-roles#dns-zone-contributor')
-resource DNSZoneContributorRoleDefinition
-'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
-  scope: subscription()
-  name: 'befefa01-2a29-4197-83a8-272ff33ce314'
-}
-
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(resourceGroup().id, principalId, DNSZoneContributorRoleDefinition.id)
-  properties: {
-    roleDefinitionId: contributorRoleDefinition.id
-    principalId: principalId
-    principalType: 'ServicePrincipal'
-  }
-}
-
-
-
-
 var functionAppName = 'func-${environmentLetters}-${regionAbreviation}-${workloadName}'
 var appServicePlanName = 'asp-${environmentLetters}-${regionAbreviation}-${workloadName}'
 var appInsightsName = 'appi-${environmentLetters}-${regionAbreviation}-${workloadName}'
