@@ -105,6 +105,7 @@
       "AzureUSGovernment": "applicationinsights.us"
     },
     "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions/', 'a4417e6f-fecd-4de8-b567-7b0420556985')]"
+    "roleDefinitionIdDns": "[resourceId('Microsoft.Authorization/roleDefinitions/', 'befefa01-2a29-4197-83a8-272ff33ce314')]"
   },
   "resources": [
     {
@@ -225,10 +226,10 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-      "scope": "[subscription().id]",
-      "name": "[guid(resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName')), variables('functionAppName'), variables('roleDefinitionId'))]",
+      "scope": "/",
+      "name": "[guid(resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName')), variables('functionAppName'), variables('roleDefinitionIdDns'))]",
       "properties": {
-        "roleDefinitionId": "befefa01-2a29-4197-83a8-272ff33ce314",
+        "roleDefinitionId": "[variables('roleDefinitionIdDns')]",
         "principalId": "[reference(resourceId('Microsoft.Web/sites', variables('functionAppName')), '2022-03-01', 'full').identity.principalId]",
         "principalType": "ServicePrincipal"
       },
