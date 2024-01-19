@@ -226,7 +226,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-"scope": "/subscriptions/{subscriptionId}",
+"scope": "[format('/subscriptions/{0}', {subscriptionId})]",
 
       "name": "[guid(resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName')), variables('functionAppName'), variables('roleDefinitionIdDns'))]",
       "properties": {
